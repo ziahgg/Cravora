@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* Cravora tokens — from the Figma "Color tokens" board (light). Lime marks the primary action and
+   progress; red is reserved for favorites and errors. */
+:root {
+  --bg: #f6f6f6;
+  --surface: #ffffff;
+  --surface-muted: #f1f1f1;
+  --ink: #141414;
+  --ink-soft: #2a2a2a;
+  --border: #e8e8e8;
+  --divider: #efefef;
+  --text: #141414;
+  --text-secondary: #6b6b6b;
+  --text-muted: #a3a3a3;
+  --on-ink: #ffffff;
+  --disabled: #dadada;
+  --disabled-text: #a6a6a6;
+  --brand: #d4f33c;
+  --brand-soft: #f3fcd0;
+  --on-brand: #141414;
+  --brand-ink: #5b7a00;
+  --star: #ffb020;
+  --heart: #f0414a;
+  --success: #1fa35b;
+  --success-soft: #e3f6ea;
+  --warning: #e08a00;
+  --warning-soft: #fff2d9;
+  --error: #e5484d;
+  --error-soft: #fdecec;
+  --map: #ecedef;
+  --map-road: #ffffff;
+  --map-block: #e2e4e7;
+  --scrim: rgba(20, 20, 20, 0.45);
+  --shadow-nav: 0 -8px 24px rgba(20, 20, 20, 0.06);
+  --shadow-toast: 0 12px 28px rgba(20, 20, 20, 0.2);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-border: var(--border);
+  --color-divider: var(--divider);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-on-ink: var(--on-ink);
+  --color-inactive: var(--text-muted);
+  --color-disabled: var(--disabled);
+  --color-disabled-text: var(--disabled-text);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-star: var(--star);
+  --color-heart: var(--heart);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
+  --color-map: var(--map);
+  --color-map-road: var(--map-road);
+  --color-map-block: var(--map-block);
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+}
+
+html { background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Type scale — Cravora/* text styles (Roboto). */
+.t-display { font-size: 34px; line-height: 40px; font-weight: 700; letter-spacing: -0.01em; }
+.t-title-xl { font-size: 26px; line-height: 32px; font-weight: 700; letter-spacing: -0.01em; }
+.t-title-l { font-size: 22px; line-height: 28px; font-weight: 600; }
+.t-title { font-size: 18px; line-height: 24px; font-weight: 600; }
+.t-section { font-size: 17px; line-height: 22px; font-weight: 600; }
+.t-card-title { font-size: 15px; line-height: 20px; font-weight: 600; }
+.t-item { font-size: 15px; line-height: 20px; font-weight: 500; }
+.t-body { font-size: 14px; line-height: 20px; font-weight: 400; }
+.t-body-m { font-size: 14px; line-height: 20px; font-weight: 500; }
+.t-label { font-size: 13px; line-height: 18px; font-weight: 500; }
+.t-caption { font-size: 12px; line-height: 16px; font-weight: 400; }
+.t-caption-m { font-size: 12px; line-height: 16px; font-weight: 500; }
+.t-price-l { font-size: 24px; line-height: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.t-price { font-size: 17px; line-height: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.t-price-s { font-size: 15px; line-height: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.t-button { font-size: 16px; line-height: 20px; font-weight: 600; }
+.t-button-s { font-size: 14px; line-height: 18px; font-weight: 500; }
+.t-nav { font-size: 10px; line-height: 12px; font-weight: 500; }
+/* Aliases used by shared primitives. */
+.t-metric-xl { font-size: 34px; line-height: 40px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.t-metric-l { font-size: 24px; line-height: 30px; font-weight: 700; }
+.t-metric-m { font-size: 17px; line-height: 22px; font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; }
+.photo { object-fit: cover; }
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+@keyframes sheet-in { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 50% { opacity: 0.5; } }
+.anim-sheet { animation: sheet-in 0.24s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.anim-fade { animation: fade-in 0.18s ease-out; }
+.anim-toast { animation: toast-in 0.2s ease-out; }
+.anim-spin { animation: spin 0.8s linear infinite; }
+.skeleton { background: var(--surface-muted); animation: pulse 1.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
